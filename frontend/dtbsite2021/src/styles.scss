@@ -11,159 +11,21 @@ $breakpoints: (
     box-sizing: border-box;
 }
 
-//screen size dependent variables
-$card-height: 33%;
-
-.row {
-    @for $i from 1 through 12 {
-        .col:first-child:nth-last-child(#{$i}),
-        .col:first-child:nth-last-child(#{$i}) ~ .col {
-            width: calc(100% / #{$i});
-        }
-    }
-}
-//end screen sz dep vars
-
-$lt-1: #c7cfc7;
-$lt-2: #f8f4ef;
-$lt-acc-1: #133251;
-$lt-acc-2: #0d8ca0;
-$lt-warning: #de4438;
-
-$dt-1: #2f2e2e;
-$dt-2: #5b6e6d;
-$dt-acc-1: #c7cfc7;
-$dt-acc-2: #f8f4ef;
-$dt-warning: #de4438;
-
-$card-width: 94%;
-$card-content-width: 90%;
-
-$card-header-height: 30%;
-$card-body-height: 50%;
-$card-footer-height: 20%;
-
 html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background: $lt-1;
 }
 
 body {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
     max-height: 100%;
     width: 100%;
-}
-
-//dark theme
-.dt {
-    color: $dt-acc-1;
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: $dt-acc-2;
-        font-weight: bolder;
-    }
-    .container {
-        background-color: $dt-1;
-    }
-    .col {
-        background-color: inherit;
-    }
-    .card {
-        background-color: $dt-acc-1;
-        .card-header {
-            color: $dt-acc-2;
-            background-color: $dt-1;
-        }
-        .card-body {
-            color: $dt-acc-1;
-            background-color: $dt-2;
-        }
-        .card-footer {
-            color: $dt-2;
-            background-color: $dt-1;
-        }
-    }
-}
-//light theme
-.lt {
-    color: black;
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        color: $lt-acc-1;
-        font-weight: bolder;
-    }
-    .container {
-        background-color: $lt-1;
-    }
-    .col {
-        background-color: inherit;
-    }
-    .card {
-        background-color: $lt-acc-1;
-        .card-header {
-            color: $lt-1;
-            background-color: $lt-acc-1;
-        }
-        .card-body {
-            color: $lt-2;
-            background-color: $lt-acc-2;
-        }
-        .card-footer {
-            color: $lt-acc-1;
-            background-color: $lt-1;
-        }
-    }
-}
-
-.card {
-    font-weight: bolder;
-    width: $card-width;
-    align-items: center;
-    text-align: center;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    .card-header {
-        height: $card-header-height;
-        width: $card-content-width;
-    }
-    .card-body {
-        height: $card-body-height;
-        width: $card-content-width;
-    }
-    .card-footer {
-        height: $card-footer-height;
-        width: $card-content-width;
-    }
-}
-
-.row {
-    width: 99%;
-    padding: 1%;
-    display: inline-flex;
-}
-
-.container {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    align-items: start;
-    padding: 1%;
-    .card {
-        img {
-            width: 100%;
-        }
-    }
 }

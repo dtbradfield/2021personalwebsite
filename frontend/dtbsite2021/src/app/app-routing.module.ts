@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { AppComponent } from './app.component';
+import { LandingComponent } from './landing/landing.component';
+
+const routes: Routes = [
+  { path: '', component: LandingComponent },
+  { path: 'multitool', loadChildren: () => import('src/app/multitool/multitool.module').then(m => m.MultitoolModule) },
+  { path: 'portfolio', loadChildren: () => import('src/app/portfolio/portfolio.module').then(m => m.PortfolioModule) }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
