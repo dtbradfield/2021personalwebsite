@@ -1,0 +1,9 @@
+<div class="floatingDiv">
+    <div *ngFor="let user of userList" class="card">
+        <div class="name">
+            <h1>
+                {{ user.name.title }} {{ user.name.first }} {{ user.name.last }}
+            </h1>
+        </div>
+    </div>
+</div>
