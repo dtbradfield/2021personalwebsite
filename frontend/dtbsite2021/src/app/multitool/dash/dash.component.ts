@@ -7,7 +7,6 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./dash.component.scss']
 })
 export class DashComponent implements OnInit, OnDestroy {
-
   top: string = '';
   left: string = '';
   expand: boolean = false;
@@ -26,15 +25,13 @@ export class DashComponent implements OnInit, OnDestroy {
     })
     if (Object.keys(this.routeParams).length === 0 && this.router.url === '/multitool') {
       this.startBlank = true;
+      this.loading = false;
     } else if (Object.keys(this.routeParams).length !== 0 && this.router.url === '/multitool') { // TO DO: handle endpoints to load the dash with the correct components
       this.startBlank = false; //also find which screen is needed here
 
     } else {//this means the route url will be providing us with the info we need to load up the components
 
     }
-    setTimeout(() => {
-      this.loading = false;
-    }, 1000)
   }
 
   ngOnDestroy(): void {
@@ -52,6 +49,12 @@ export class DashComponent implements OnInit, OnDestroy {
   @HostListener('document:mousemove', ['$event']) onMousemove($event: any) {
     this.top = ($event.pageY - 10) + "px";
     this.left = ($event.pageX - 10) + "px";
+  }
+
+  onChildLoaded(e: any) {
+    if (e.loaded) {
+      this.loading = false;
+    }
   }
 
 }

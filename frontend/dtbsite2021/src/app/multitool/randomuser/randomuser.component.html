@@ -2,8 +2,13 @@
     <div *ngFor="let user of userList" class="card">
         <div class="name">
             <h1>
-                {{ user.name.title }} {{ user.name.first }} {{ user.name.last }}
+                {{ user?.name.title }} {{ user?.name.first }} {{ user?.name.last }}
             </h1>
+            <p>
+                {{ user?.gender }}
+            </p>
+            <img [src]="user.picture.thumbnail" alt="">
         </div>
+
     </div>
 </div>

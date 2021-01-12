@@ -1,6 +1,12 @@
 .floatingDiv {
     position: fixed;
+    width: 65vw;
+    height: 65vh;
     top: 0;
     left: 0;
-    background-color: orange;
+    right: 0;
+    bottom: 0;
+    background-color: none;
+    margin: 5% auto;
+    overflow-y: scroll;
 }

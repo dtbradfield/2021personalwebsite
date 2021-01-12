@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { RandomuserService } from './randomuser-service.service'
 
@@ -8,6 +8,7 @@ import { RandomuserService } from './randomuser-service.service'
   styleUrls: ['./randomuser.component.scss']
 })
 export class RandomuserComponent implements OnInit {
+  @Output() dataLoaded = new EventEmitter<object>();
   userList: any = [];
 
   constructor(private rUService: RandomuserService) { }
@@ -18,6 +19,11 @@ export class RandomuserComponent implements OnInit {
         this.userList.push(user);
       })
     })
+    setTimeout(() => {
+      this.dataLoaded.emit({
+        loaded: true
+      })
+    }, 1000);
   }
 
 }

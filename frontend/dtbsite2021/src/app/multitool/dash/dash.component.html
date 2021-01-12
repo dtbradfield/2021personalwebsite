@@ -1,4 +1,6 @@
-<div class="cursor" [style.top]="top" [style.left]="left" [ngClass]="{'expand':expand}"></div>
+<div *ngIf="!loading">
+    <app-randomuser (dataLoaded)="onChildLoaded($event)" ></app-randomuser>
+</div>
 
 <svg style="background-color: #060d18;" height="100%" width="100%">
     <circle r="90vh" cx="50%" cy="50%" stroke="black" stroke-width="3" fill="rgb(255, 255, 255, 0.75)" />
@@ -6,4 +8,4 @@
 
 <div [ngClass]="{'loadingShader': loading}"></div>
 
-<app-randomuser></app-randomuser>
+<div class="cursor" [style.top]="top" [style.left]="left" [ngClass]="{'expand':expand}"></div>
